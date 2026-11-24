@@ -1,0 +1,6 @@
+<launch>
+    <!-- Trajectory Planner Node -->
+    <node name="trajectory_planner" pkg="trajectory_planner" type="trajectory_planner_node.py" output="screen">
+        <rosparam file="$(find trajectory_planner)/config/trajectory_params.yaml" command="load" />
+    </node>
+</launch>

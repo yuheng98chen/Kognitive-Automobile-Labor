@@ -1,0 +1,16 @@
+# Maximum desired length of the published trajectory in meters.
+trajectory_length_m: 1.20
+
+# Distance in meters *in front* of the vehicle (along its negative Y-axis in vehicle frame)
+# where the trajectory should effectively begin.
+# For example, 0.02 means 2cm in front of the vehicle's reference point.
+start_distance_ahead_m: 0.10
+
+# Distance in meters to shift the identified right road boundary to the *left*
+# (positive X direction in the vehicle's frame) to define the center of the target lane.
+# For example, 0.20 means 20cm to the left of the right boundary.
+lane_center_offset_m: 0.20
+
+# TF frame ID for the map. This is where the pre-cached lane .npy files are defined
+# and where the final trajectory Path will be published.
+map_frame_id: "stargazer"

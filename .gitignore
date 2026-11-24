@@ -1,0 +1,9 @@
+.vscode/
+build/
+devel/
+install/
+logs/
+__pycache__/
+*.pyc
+kal3_gitlab_token
+.env

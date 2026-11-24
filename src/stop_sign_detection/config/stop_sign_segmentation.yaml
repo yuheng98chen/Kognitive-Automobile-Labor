@@ -1,0 +1,26 @@
+# Stop Sign Segmentation Node Configuration
+
+# Input topics (should match publishers of image and mask nodes)
+mask_topic: "/yolo_detection/segmentation_mask"
+depth_topic: "/camera_front/depth/processed"
+rgb_topic: "/camera_front/color/processed"
+camera_info_topic: "/camera_front/processed/camera_info"
+
+# Output topic
+output_topic: "/yolo_detection/stop_sign_position"
+
+# Detection filtering
+min_mask_area: 450               # Ignore masks with smaller area
+max_invalid_depth_ratio: 0.5     # Allowed fraction of invalid depth pixels in mask
+max_distance: 8.0                # [m] ignore detections farther than this (0 = disabled)
+
+# Parameters for robust depth estimation at centroid
+centroid_depth_neighborhood_size: 5  # Side length of square neighborhood (pixels). Must be odd. 0 or less to disable.
+min_valid_pixels_in_neighborhood: 5 # Minimum valid depth pixels in neighborhood to use its median.
+
+# Target key (mask name)
+target_key: "stop_sign"
+
+# Debug settings
+publish_debug: false
+debug_topic: "/yolo_detection/stop_sign_debug_image"

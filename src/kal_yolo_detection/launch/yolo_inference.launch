@@ -1,0 +1,18 @@
+<launch>
+    <!--
+        ROS launch file for the YOLO Segmentation Node.
+        This file starts the yolo_inference_node.py and loads its configuration
+        from the yolo_params.yaml file.
+    -->
+    <arg name="node_name" default="yolo_segmentation_node" />
+    <arg name="output" default="screen" />
+
+    <node name="$(arg node_name)" pkg="kal_yolo_detection" type="yolo_inference_node.py" output="$(arg output)">
+        <!--
+            Load parameters from the YAML file into the node's private namespace.
+            This allows the node to be configured without changing the source code.
+        -->
+        <rosparam file="$(find kal_yolo_detection)/config/yolo_params.yaml" command="load" />
+    </node>
+
+</launch>

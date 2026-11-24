@@ -1,0 +1,17 @@
+<package format="2">
+  <name>kal_launch</name>
+  <version>0.0.1</version>
+  <description>Aggregate launch files to bring up Kal autonomous stack.</description>
+
+  <maintainer email="user@todo.todo">TODO Maintainer</maintainer>
+  <license>MIT</license>
+
+  <!-- Runtime dependencies -->
+  <exec_depend>kal_env_map</exec_depend>
+  <exec_depend>kal_yolo_detection</exec_depend>
+  <exec_depend>utils</exec_depend>
+
+  <!-- Build dependencies (none, but catkin still required) -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

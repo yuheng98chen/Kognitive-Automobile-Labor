@@ -1,0 +1,24 @@
+<launch>
+
+  <node pkg="kal_env_map" type="env_map_node.py" name="env_map_node" output="screen"/>
+
+  <node pkg="kal_yolo_detection" type="yolo_inference_node.py" name="yolo_inference_node" output="screen"/>
+
+  <node pkg="utils" type="image_undistort_downscale_node" name="image_undistort_downscale" output="screen"/>
+
+  <node pkg="stop_sign_detection" type="stop_sign_locator.py" name="stop_sign_locator_node" output="screen"/>
+  <node pkg="stop_sign_detection" type="stop_sign_manager.py" name="stop_sign_manager_node" output="screen"/>
+
+  <node pkg="pylon_detection" type="pylon_locator.py" name="pylon_locator_node" output="screen"/>
+  <node pkg="pylon_detection" type="pylon_manager.py" name="pylon_manager_node" output="screen"/>
+  <node pkg="pylon_detection" type="pylon_lane_fitter.py" name="pylon_lane_fitter" output="screen"/>
+
+  <node pkg="trajectory_planner" type="trajectory_planner_node.py" name="trajectory_planner_node" output="screen">
+    <param name="lateral_correction_m" value="-0.05" />
+  </node>
+
+  <node pkg="controller" type="lane_path_publisher.py" name="lane_path_publisher" output="screen"/>
+
+  <node pkg="controller" type="controller_with_stopsign_behavior.py" name="pure_pursuit_with_stop" output="screen"/>
+
+</launch>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pylon_detection</name>
+  <version>0.0.1</version>
+  <description>Pylon tracking &amp; realtime lane fitting</description>
+
+  <maintainer email="ziyi@todo.todo">kal3</maintainer>
+  <license>MIT</license>
+
+  <!-- build tool -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- 仅编译期需要 -->
+  <build_depend>message_generation</build_depend>
+
+  <!-- 运行期额外需要 -->
+  <exec_depend>message_runtime</exec_depend>
+
+  <!-- 其余包：同时是 build + exec 依赖，用 <depend> 一次写完 -->
+  <depend>cv_bridge</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+
+  <depend>rospy</depend>
+  <depend>message_filters</depend>
+  <depend>tf</depend>
+  <depend>visualization_msgs</depend>
+
+  <!-- 与其他功能包接口 -->
+  <depend>kal_env_map</depend>
+  <depend>kal_yolo_detection</depend>
+
+  <export/>
+</package>

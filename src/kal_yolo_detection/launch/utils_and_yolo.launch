@@ -1,0 +1,23 @@
+<launch>
+    <!-- Combined launch file for image undistortion/downscaling and YOLO segmentation -->
+
+    <!-- ===== Image undistort & downscale node (package: utils) ===== -->
+    <arg name="undistort_node_name" default="image_undistort_downscale" />
+    <!-- Downscale factor: 1 = original resolution, 2 = half resolution, etc. -->
+    <arg name="downscale_factor" default="2" />
+
+    <node pkg="utils" type="image_undistort_downscale_node" name="$(arg undistort_node_name)" output="screen">
+        <param name="downscale_factor" value="$(arg downscale_factor)" />
+    </node>
+
+    <!-- ===== YOLO segmentation node (package: kal_yolo_detection) ===== -->
+    <!-- Re-use existing launch file so that all its parameters remain in one place -->
+    <include file="$(find kal_yolo_detection)/launch/yolo_inference.launch">
+        <!-- Forward any arguments you wish to override here -->
+        <arg name="output" value="screen" />
+        <!-- The default node name inside yolo_inference.launch is already set, but you
+             can still override it here if desired, e.g.:
+             <arg name="node_name" value="yolo_segmentation_node" /> -->
+    </include>
+
+</launch>

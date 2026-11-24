@@ -1,0 +1,35 @@
+# Configuration for yolo_inference_node.py
+model_path: "model/best_model.pt"
+
+# Input RGB image topic
+input_topic: "/camera_front/color/processed"
+
+# Output topic for NamedMaskArray
+mask_topic: "/yolo_detection/segmentation_mask"
+
+# Output topic for the debug image (if enabled)
+debug_topic: "/yolo_detection/debug_image"
+
+# Publish the debug image
+publish_debug: true
+
+# Global confidence threshold
+confidence_threshold: 0.25
+
+# Per-class confidence thresholds (overrides global)
+# class_conf_thresholds:
+#   road: 0.3
+#   stop_sign: 0.15
+class_conf_thresholds: {}
+
+# Inference device ("cpu", "cuda:0", etc.)
+device: "cuda:0"
+
+# Alpha for debug image blending (overlay transparency)
+debug_alpha: 0.6
+
+# Beta for debug image blending (overlay prominence)
+debug_beta: 0.4
+
+# Classes to show in the debug overlay (empty list for all)
+debug_overlay_classes: ["road", "lane_bound"]

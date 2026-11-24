@@ -1,0 +1,26 @@
+<launch>
+    <!--
+        Launch file for the Stop Sign Segmentation Node.
+        It loads parameters from the YAML configuration file and starts the node.
+    -->
+
+    <!-- Argument to easily enable/disable debug output -->
+    <arg name="debug" default="false" doc="Set to true to publish debug images"/>
+
+    <!-- Load parameters from the YAML file into the node's private namespace -->
+    <rosparam command="load"
+              file="$(find stop_sign_detection)/config/stop_sign_segmentation.yaml"
+              ns="stop_sign_segmentation_node" />
+
+    <!-- Override specific parameters using args if needed, e.g., debug -->
+    <param name="/stop_sign_segmentation_node/publish_debug" value="$(arg debug)" />
+
+    <!-- Launch the stop_sign_locator.py script -->
+    <node name="stop_sign_segmentation_node"
+          pkg="stop_sign_detection"
+          type="stop_sign_locator.py"
+          output="screen"
+          respawn="false">
+        <!-- Parameters are already loaded into the node's private namespace via rosparam above -->
+    </node>
+</launch>

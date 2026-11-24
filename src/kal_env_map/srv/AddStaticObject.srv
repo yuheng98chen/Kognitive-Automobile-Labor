@@ -1,0 +1,5 @@
+string layer        # "stop_sign" or "pylon"
+float32 x
+float32 y
+---
+bool accepted       # True if successfully inserted
